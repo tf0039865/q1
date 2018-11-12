@@ -17,7 +17,7 @@ function setup() {
   video = createCapture(VIDEO).parent('videoContainer');
   // Create a KNN Image Classifier
 
-  knn = new ml5.KNNImageClassifier(8, 1, modelLoading, video.elt);
+  knn = new ml5.KNNImageClassifier(3, 1, modelLoading, video.elt);
   knn.load('test.json', modelLoaded);
   
   createButtons();
@@ -40,11 +40,11 @@ function restart() {
 
 // A function to be called when the model has been loaded
 function modelLoaded() {
-  select('#loading').html('水果模組載入成功');
+  select('#loading').html('猜拳模組載入成功');
 }
 
 function modelLoading() {
-  select('#loading').html('水果模組載入中……');
+  select('#loading').html('猜拳模組載入中……');
 }
 
 
@@ -58,29 +58,30 @@ function gotResults(results) {
   let msg;
 
   if (results.classIndex == 1) {
-    //msg = '香蕉';
-    document.getElementById("myImg").src = "a1.png";
+    //msg = '剪刀';
+	document.getElementById("myImg").src = "a1.png";
   } else if (results.classIndex == 2) {
-    //msg = '蘋果';
-    document.getElementById("myImg").src = "a2.png";
+    //msg = '石頭';
+	document.getElementById("myImg").src = "a2.png";
   } else if (results.classIndex == 3) {
-    //msg = '哈密瓜';
-    document.getElementById("myImg").src = "a3.png";
+    //msg = '布';
+	document.getElementById("myImg").src = "a3.png";
   }else if (results.classIndex == 4) {
-   // msg = '木瓜';
+    //msg = '石頭';
     document.getElementById("myImg").src = "a4.png";
-  }else if (results.classIndex == 5) {
-    //msg = '蓮霧';
+  } else if (results.classIndex == 5) {
+    //msg = '石頭';
     document.getElementById("myImg").src = "a5.png";
-  }else if (results.classIndex == 6) {
-    //msg = '芭樂';
+  } else if (results.classIndex == 6) {
+    //msg = '石頭';
     document.getElementById("myImg").src = "a6.png";
-  }else if (results.classIndex == 7) {
-    //msg = '西瓜';
+  } else if (results.classIndex == 7) {
+    //msg = '石頭';
     document.getElementById("myImg").src = "a7.png";
-  }else if (results.classIndex == 8) {
-    //msg = '番茄';
+  } else if (results.classIndex == 8) {
+    //msg = '石頭';
     document.getElementById("myImg").src = "a8.png";
+  } 
   //select('#result').html(msg);
 
   setTimeout(function(){

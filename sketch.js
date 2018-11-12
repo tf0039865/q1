@@ -113,7 +113,6 @@ function createButtons() {
     clearClass(8);
     updateExampleCounts();
   });
-  
   // Predict Button
   buttonPredict = select('#buttonPredict');
   buttonPredict.mousePressed(predict);
@@ -144,7 +143,6 @@ function train(category) {
   }else if (category == 8) {
     msg = '番茄';
   }
-
   select('#training').html(msg);
   knn.addImageFromVideo(category);
   updateExampleCounts();
@@ -165,24 +163,28 @@ function gotResults(results) {
     msg = '蘋果';
   } else if (results.classIndex == 3) {
     msg = '哈密瓜';
-  }else if (results.classIndex == 4) {
+  } else if (results.classIndex == 4) {
     msg = '木瓜';
-  }else if (results.classIndex == 5) {
+  } else if (results.classIndex == 5) {
     msg = '蓮霧';
-  }else if (results.classIndex == 6) {
+  } else if (results.classIndex == 6) {
     msg = '芭樂';
-  }else if (results.classIndex == 7) {
+  } else if (results.classIndex == 7) {
     msg = '西瓜';
-  }else if (results.classIndex == 8) {
+  } else if (results.classIndex == 8) {
     msg = '番茄';
   }
-
   select('#result').html(msg);
 
   // Update confidence
   select('#confidenceA').html(results.confidences[1]);
   select('#confidenceB').html(results.confidences[2]);
   select('#confidenceC').html(results.confidences[3]);
+  select('#confidenceD').html(results.confidences[4]);
+  select('#confidenceE').html(results.confidences[5]);
+  select('#confidenceF').html(results.confidences[6]);
+  select('#confidenceG').html(results.confidences[7]);
+  select('#confidenceH').html(results.confidences[8]);
 
   setTimeout(function(){
     predict();
